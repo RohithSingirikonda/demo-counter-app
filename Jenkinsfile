@@ -7,15 +7,10 @@ pipeline {
 		git branch: 'main', url: 'https://github.com/RohithSingirikonda/demo-counter-app.git'
 	    }
         }
-    	stage('Unit Testing') {
+	
+    	stage('mvn install') {
             steps {
-	    	sh 'mvn test'
-	    }
-	}
-    
-    	stage('Integration Testing') {
-            steps {
-	    	sh 'mvn verify -DiskunitTests'
+	    	sh 'mvn clean install'
 	    }
 	}
     }
